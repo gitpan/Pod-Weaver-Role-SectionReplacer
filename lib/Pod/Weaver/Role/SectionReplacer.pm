@@ -1,14 +1,14 @@
 package Pod::Weaver::Role::SectionReplacer;
 
-# ABSTRACT: a Pod::Weaver section that will replace itself in the original document.
+# ABSTRACT: A Pod::Weaver section that will replace itself in the original document.
 
 use Moose::Role;
 with 'Pod::Weaver::Role::Transformer';
 
-use Moose::Autobox;
+use Moose::Autobox 0.11;
 use Pod::Elemental::Selectors -all;
 
-our $VERSION = '0.99_01';
+our $VERSION = '0.99_02';
 
 has original_section => (
   is  => 'rw',
@@ -74,11 +74,11 @@ __END__
 
 =head1 NAME
 
-Pod::Weaver::Role::SectionReplacer - a Pod::Weaver section that will replace itself in the original document.
+Pod::Weaver::Role::SectionReplacer - A Pod::Weaver section that will replace itself in the original document.
 
 =head1 VERSION
 
-version 0.99_01
+version 0.99_02
 
 =head1 SYNOPSIS
 
@@ -169,13 +169,13 @@ in the weaver.ini for plugins that use this role.
 
 =item B<< $plugin->mvp_multivalue_args() >>
 
-Tells L<Config::MVP>> that C<section_aliases> always takes multiple-values
+Tells L<Config::MVP> that C<section_aliases> always takes multiple-values
 and should be stored as an arrayref.
 
 =item B<< $plugin->transform_document() >>
 
-L<Pod::Weaver:Role::SectionReplacer>> implements the role
-L<Pod::Weaver::Role::Transformer>>, and as such it provides its own
+L<Pod::Weaver:Role::SectionReplacer> implements the role
+L<Pod::Weaver::Role::Transformer>, and as such it provides its own
 C<< $plugin->tranform_document() >> method in order to prune the original
 section from the input document before any further weaving is done.
 
